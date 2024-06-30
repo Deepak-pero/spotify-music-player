@@ -201,7 +201,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getsongs(folder) {
     currFolder = folder;
-    let response = await fetch(`http://127.0.0.1:54536/${folder}`);
+    let response = await fetch(`https://deepak-pero.github.io/${folder}`);
     let html = await response.text();
     let div = document.createElement("div");
     div.innerHTML = html;
@@ -253,7 +253,7 @@ const playMusic = (track, pause = false) => {
 
 async function displayAlbums() {
     try {
-        let response = await fetch(`http://https://deepak-pero.github.io/spotify-music-player/songs/`);
+        let response = await fetch(`https://deepak-pero.github.io/songs/`);
         let html = await response.text();
         let div = document.createElement("div");
         div.innerHTML = html;
@@ -266,7 +266,7 @@ async function displayAlbums() {
             if (e.href.includes("/songs")) {
                 let folder = e.href.split("/").slice(-2)[1];
                 // console.log(`Fetching info.json for folder: ${folder}`);
-                let infoResponse = await fetch(`http://127.0.0.1:54536/songs/${folder}/info.json`);
+                let infoResponse = await fetch(`https://deepak-pero.github.io/songs/${folder}/info.json`);
                 if (infoResponse.ok) {
                     let info = await infoResponse.json();
                     cardcontainer.innerHTML += `<div data-folder="${folder}" class="card">
@@ -380,4 +380,3 @@ function updateCardListeners() {
 
 
 main();
-54536
